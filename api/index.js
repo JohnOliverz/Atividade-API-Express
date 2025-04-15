@@ -4,12 +4,29 @@ const usuarios = require('../data/usuarios');
 
 app.use(express.json());
 
+
+// Rota raiz - Mensagem inicial com rotas disponíveis
+app.get('/', (req, res) => {
+    res.send(`
+        <h2>Bem-vindo à API de Usuários!</h2>
+        <p>Rotas disponíveis:</p>
+        <ul>
+            <li>POST /cadastro - Cadastrar uma nova pessoa</li>
+            <li>GET /usuario/todos - Listar os 10 últimos usuários</li>
+            <li>GET /usuario/cidade/:cidade - Listar usuários por cidade</li>
+            <li>GET /usuario/sorteado - Exibir um usuário aleatório</li>
+        </ul>
+    `);
+});
+
+
+
 //Rota POST - Cadastrar nova pessoa
 app.post('/cadastro', (req, res) =>{
     const { nome, cidade } = req.body;
 
     if (!nome || !cidade){
-        return res.status(400).json({mensagem: 'Obrigatório preencher os campos.'})
+        return res.status(400).json({mensagem: 'Campos Obrigatorios!! (Nome e Cidade).'})
     }
 
     const novaPessoa = {
@@ -37,7 +54,7 @@ app.get('/usuario/cidade/:cidade', (req, res) =>{
     );
 
     if (usuariosFiltrados.length === 0) {
-        return res.status(400).json({ mensagem: 'Nunhum usuário encontrado nessa cidade'});
+        return res.status(400).json({ mensagem: 'Não há nenhuma pessoa desta cidade'});
     }
 
     res.json(usuariosFiltrados);
