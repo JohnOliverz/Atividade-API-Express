@@ -1,0 +1,14 @@
+{
+  "name": "atividade1",
+  "version": "1.0.0",
+  "description": "Atividade 1 Web II",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Jefferson",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^5.1.0"
+  }
+}
