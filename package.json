@@ -1,12 +1,12 @@
 {
   "name": "atividade1",
   "version": "1.0.0",
-  "description": "Atividade 1 Web II",
+  "description": "ATIVIDADE API EXPRESS",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Jefferson",
+  "author": "Jhonatan Sousa",
   "license": "ISC",
   "devDependencies": {
     "express": "^5.1.0"
